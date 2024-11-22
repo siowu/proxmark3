@@ -22,7 +22,7 @@
         if (userInfoBasicModel.is_hide_distance.value == 1 || userInfoBasicModel.is_hide_last_operate.value == 1) {
             var Toast = Java.use('android.widget.Toast');
             var context = Java.use('android.app.ActivityThread').currentApplication().getApplicationContext();
-            var content = "距离:" + userInfoBasicModel.distance.value + "km\n在线时间:" + calTime(userInfoBasicModel.last_operate.value);
+            var content = "距离: " + userInfoBasicModel.distance.value + "km\n在线时间: " + calTime(userInfoBasicModel.last_operate.value);
             Toast.makeText(context, Java.use('java.lang.String').$new(content), Toast.LENGTH_LONG.value).show();
         }
         this.a(userInfoBasicModel);
