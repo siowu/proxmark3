@@ -1,3 +1,25 @@
+
+
+Java.perform(function () {
+    function calTime(givenTimestamp) {
+    let timestamp = Number(givenTimestamp);
+    const now = Date.now();
+    const difference = Math.floor((now)/1000)-timestamp;
+    if (difference < 60) {
+        return `${difference}秒前`;
+    } else if (difference < 3600) {
+        const minutes = Math.floor(difference / 60);
+        return `${minutes}分钟前`;
+    } else if (difference < 86400) {
+        const hours = Math.floor(difference / 3600);
+        return `${hours}小时前`;
+    } else if (difference < 2592000) {
+        const days = Math.floor(difference / 86400);
+        return `${days}天前`;
+    } else {
+        return `30天前`;
+    }
+}
     var targetClass = Java.use('com.soft.blued.ui.user.adapter.UserInfoPrivateAlbumAdapter');
     var BluedAlbum = Java.use('com.blued.android.module.common.user.model.BluedAlbum');
 
@@ -27,3 +49,4 @@
         }
         this.a(userInfoBasicModel);
     };
+});
