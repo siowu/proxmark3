@@ -1,6 +1,5 @@
 //ssssssssss
-
-Java.perform(function () {
+1Java.perform(function () {
     function calTime(givenTimestamp) {
     let timestamp = Number(givenTimestamp);
     const now = Date.now();
