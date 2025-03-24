@@ -91,7 +91,7 @@ jobs:
         run: make client/check CHECKARGS="--clientbin ./client/build/proxmark3"
 
       - name: Upload build artifact
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v2
               with:
                 name: proxmark3-proxspace-build
                 path: client/build/*
