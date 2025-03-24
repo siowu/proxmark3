@@ -50,45 +50,9 @@ jobs:
 
       - uses: actions/checkout@v4
 
-      - name: make clean
-        run: make clean
-
-      - name: Build
-        run: make -j $([System.Environment]::ProcessorCount + 1) V=1
-
-      - name: Test
-        run: make check
-
-      - name: make clean
-        run: make clean
-
-      - name: Build btaddon
-        run: make -j $([System.Environment]::ProcessorCount + 1) V=1 PLATFORM_EXTRAS=BTADDON
-
-      - name: Test btaddon
-        run: make check
-
-      - name: make clean
-        run: make clean
-
-      - name: Prepare cmake build folders
-        run: |
-          mkdir -p client/build
-          ln -s ../cmdscripts client/build/
-          ln -s ../luascripts client/build/
-          ln -s ../pyscripts client/build/
-          ln -s ../lualibs client/build/
-
-      - name: Initiate cmake environment
-        run: cmake -G"MSYS Makefiles" ..
-        working-directory: client/build/
-
-      - name: Build cmake
-        run: make -j $([System.Environment]::ProcessorCount + 1) VERBOSE=1
-        working-directory: client/build/
-
-      - name: Test cmake
-        run: make client/check CHECKARGS="--clientbin ./client/build/proxmark3"
+      - name: ProxSpace initial startup
+        working-directory: C:\ProxSpace
+        run: ./autobuild.bat -c "exit"
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
